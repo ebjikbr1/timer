@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101a26">
+  <title>Контроль торможения</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="voice-player.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app idle">
+    <header class="header"><div><span class="eyebrow">ПОМОЩНИК ПО ВРЕМЕНИ</span><h1>Контроль торможения</h1></div><button id="sound" class="icon" aria-label="Звук включён" title="Звук" hidden>🔊</button></header>
+    <section class="status" id="status-card" aria-live="polite" hidden><div class="status-label">СЕЙЧАС</div><div id="status-title" class="status-title">Готов к началу</div><div id="status-hint" class="status-hint">Нажмите кнопку в момент начала торможения.</div></section>
+    <section class="timers" aria-label="Таймеры" hidden>
+      <article class="timer" id="brake-limit-card"><div class="timer-top"><span>Торможение</span><strong>2:30</strong></div><div id="brake-limit" class="digits">—</div><div id="brake-limit-note" class="timer-note">Ожидание</div></article>
+      <article class="timer" id="aux-limit-card"><div class="timer-top"><span>Вспомогательный кран</span><strong>2:30</strong></div><div id="aux-limit" class="digits">—</div><div id="aux-limit-note" class="timer-note">Ожидание</div></article>
+      <article class="timer" id="aux-thirty-card"><div class="timer-top"><span>После отпуска большого</span><strong>30 сек</strong></div><div id="aux-thirty" class="digits">—</div><div id="aux-thirty-note" class="timer-note">Ожидание</div></article>
+      <article class="timer wide" id="traction-card"><div class="timer-top"><span>До возможности тяги</span><strong>1:00</strong></div><div id="traction" class="digits">—</div><div id="traction-note" class="timer-note">Ожидание</div></article>
+      <article class="timer wide" id="since-release-card"><div class="timer-top"><span>Время с последнего торможения</span><strong>↑</strong></div><div id="since-release" class="digits">—</div><div id="since-release-note" class="timer-note">С отпуска большого крана</div></article>
+    </section>
+    <section class="controls" aria-label="Фиксация действий">
+      <button id="brake" class="action primary">Начать торможение</button>
+      <button id="aux-on" class="action amber" hidden>Зажал вспомогательный кран</button>
+      <button id="big-off" class="action blue" hidden>Отпустил большой кран</button>
+      <button id="aux-off" class="action green" hidden>Отпустил вспомогательный</button>
+      <button id="new-cycle" class="action secondary" hidden>Новое торможение</button>
+    </section>
+    <section class="log-section" hidden><div class="log-heading"><h2>Журнал событий</h2><button id="reset" class="text-button">Сбросить</button></div><ol id="log" class="log"></ol></section>
+    <p class="footnote" hidden>Время фиксируется нажатием кнопок. Страница не измеряет давление в ТЦ и не заменяет штатный контроль.</p>
+  </main>
+</body>
+</html>
